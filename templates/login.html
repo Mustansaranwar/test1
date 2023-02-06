@@ -1,0 +1,114 @@
+{% load static %}
+<!doctype html>
+<html lang="en" > 
+<head>
+    
+    <title>AKPC-Tronsit Support Portal</title>
+  
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" type="image/png" href="{% static 'Icon-2.ico' %}"/>
+
+
+	<link rel="stylesheet" href="static/style.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <style>
+  body{
+    background-size: 100%;
+    }
+    
+    @-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%{-webkit-transform:translateX(0px);transform:translateX(0px)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}100%{-webkit-transform:translateX(0px);transform:translateX(0px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%{transform:translateX(0px)}50%{transform:translateX(80px)}100%{transform:translateX(0px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}
+    /* Demo Purpose Only*/
+    .demo {
+      font-family: 'Raleway', sans-serif;
+        color:#fff;
+        display: block;
+        margin: 0 auto;
+        padding: 15px 0;
+        text-align: center;
+    }
+    .demo a{
+      font-family: 'Raleway', sans-serif;
+    color: #000;		
+    }
+  
+ </style>
+ </head>
+<body>
+
+  <body>
+
+
+      <div class="container">
+
+        <div class="row justify-content-center" >
+          <div class="col-md-6 text-center mb-5" >
+
+            {% if msg %}
+            <div style="background-color: lightblue;" id="">
+              <h6 class="alert alert-success mt-1 " style="font-family: 'Poppins';font-size: 22px;"   id="msg"> {{msg}} </h6>
+              </div>
+          
+             {% endif %}
+            
+          </div>
+        </div>
+      
+        <div class="row justify-content-center" >
+          <div class="col-md-7 col-lg-5">
+
+            <div class="login-wrap p-4 p-md-5">
+              <!-- <div class="icon d-flex align-items-center justify-content-center">
+               
+                <span class="fa fa-user-o"></span>
+              </div> -->
+              <h3 class="text-center mb-4">Sign In</h3>
+              
+              <form method="POST" id="form22" class="p-3 bg-transparent " action = "userLogin" style="border-radius: 0px 0px 20px 20px;">
+
+                <div id="msg" class="">
+                  
+                  </div>
+
+                {% csrf_token %}
+
+                <div class="form-group">
+                  <input  name="username" class="form-control rounded-left" placeholder="Username" required>
+                </div>
+                <div class="form-group d-flex">
+                  <input type="password" name="password" class="form-control rounded-left" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                  <button type="submit"   class="form-control btn btn-primary rounded submit px-3">Login</button>
+                </div>
+                <div class="form-group d-md-flex">
+                  <a href="http://127.0.0.1:8000/microsoft_authentication/login">Sign in</a>  
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  
+    </body>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- <script>
+
+if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+        setTimeout(function(){
+            if($('#msg').length>0){
+              $('#msg').remove();
+            }
+         },3000)
+            </script> -->
+</body>
+</html>
+
+
